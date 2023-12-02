@@ -1,1 +1,14 @@
-hello this will be our new read me file
+Dear Reader, 
+
+This project is for our Data Structures class (COSC125). 
+We have decided to build a fitness Manager/ Assistant for mainly athletes. 
+The way the program works is the user has a stamina level that is 100% by default. 
+The user has to answer a questionnaire that asks about sleep levels, food intake and soreness levels every morning. Then the user is presented with the option to work out if they choose to.
+The workout can be created by the prograam based on how much stamina the user plans on using up or the user may themself create their own workout from a pre determined list of exercises. 
+The stamina level is recalculated daily based on sleep, food, soreness and fatigue. 
+We hope you enjoy it.
+
+"Simplicity is the ultimate sophistication" - Leonardo Da Vinci 
+
+With regards, 
+Zain, Amr, Yousif and Mazen. 
