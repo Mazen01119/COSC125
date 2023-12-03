@@ -1,19 +1,23 @@
 import java.util.*;
 
 public class Workouts {
-	Queue workout = new LinkedList();
+	public static int totalStamina;
+	HashMap<Integer, Object> map = new HashMap<Integer, Object>();
 	
+	Queue workout = new LinkedList();
 	
 	public void addExercise(Exercise exercise) {
 		workout.add(exercise);
+		totalStamina += exercise.getStamina(); 
+		
 	}
 	
-	public int staminaCost(Queue workout) {
-		int cost = 0;
-		while(workout!=null) {
-	//		Exercise exercise = workout.remove();
-	//		cost += exercise.getStamina();
+	
+	//Exercise exercise = workout.remove();
+	
+	public int staminaCost() {
+		return totalStamina;
 		}
-		return cost;
+		
 	}
-}
+
