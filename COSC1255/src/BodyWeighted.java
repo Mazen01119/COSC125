@@ -5,13 +5,13 @@ public class BodyWeighted extends Exercise {
 	static ArrayList<String> bodyweightExercises = new ArrayList<String>(Arrays.asList(bodyweight));
 		
 	
-	public BodyWeighted(String exerciseName, int staminaCost) {
+	public Bodyweighted(String exerciseName, int staminaCost) {
 		super(exerciseName, staminaCost);
 		
 	}
 	
-	public String[] getExercises() {
-		return bodyweight;
+	public static ArrayList<String> getExercises() {
+		return bodyweightExercises;
 	}
 	
 	
