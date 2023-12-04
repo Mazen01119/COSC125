@@ -2,7 +2,7 @@ import java.util.*;
 public class Weighted extends Exercise {
 
 	private static String[] weighted = {"benchpress", "deadlift", "curls", "squats"};
-	static ArrayList<String> weightExercises = new ArrayList<String>(Arrays.asList(weighted));
+	static ArrayList<String> weightedExercises = new ArrayList<String>(Arrays.asList(weighted));
 		
 	
 	public Weighted(String exerciseName, int staminaCost) {
@@ -10,9 +10,8 @@ public class Weighted extends Exercise {
 		
 	}
 	
-	public String[] getExercises() {
-		return weighted;
+	public static ArrayList<String> getExercises() {
+		return weightedExercises;
 	}
-	
 	
 }
