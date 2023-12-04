@@ -30,10 +30,10 @@ public class Exercise {
 		
 		
 		//Making the objects for bodyweighted exercises.
-		BodyWeighted pushups = new BodyWeighted("pushups", 20);
-		BodyWeighted pullups = new BodyWeighted("pullups", 30);
-		BodyWeighted dips = new BodyWeighted("dips", 25);
-		BodyWeighted handstands = new BodyWeighted("handstands", 15);
+		Bodyweighted pushups = new Bodyweighted("pushups", 20);
+		Bodyweighted pullups = new Bodyweighted("pullups", 30);
+		Bodyweighted dips = new Bodyweighted("dips", 25);
+		Bodyweighted handstands = new Bodyweighted("handstands", 15);
 		
 		//Making the objects for weighted exercises
 		Weighted benchpress  = new Weighted("benchpress", 25);
@@ -55,9 +55,13 @@ public class Exercise {
 		
 		
 		
+		
+		
+		
 		while(true) {
 			//Temporary for now, gives an example of how a user would add a custom exercise to the list of exercises.
-			System.out.println(exercises);
+			System.out.println(Bodyweighted.getExercises());
+			System.out.println(Weighted.getExercises());
 			Scanner input = new Scanner(System.in);
 			
 			System.out.println("Do you want to add exercises? (yes/no)");
@@ -72,17 +76,18 @@ public class Exercise {
 				boolean weighted = true;
 				
 				System.out.println("is it weighted?");
+				input.nextLine(); 
 				if(!(input.nextLine().toLowerCase().equals("yes"))) {
 					weighted = false;
 				}
 				
 				if(weighted) {
-					Weighted.weightExercises.add(exerciseName); //Adds to weighted exercise list
+					Weighted.weightedExercises.add(exerciseName); //Adds to weighted exercise list
 				} else {
-					BodyWeighted.bodyweightExercises.add(exerciseName); //Adds to bodyweighted exercise list
+					Bodyweighted.bodyweightExercises.add(exerciseName); //Adds to bodyweighted exercise list
 				}
 				
-				Exercise.addExercise(exerciseName, staminaCost); //Adds exercise to general list
+				Exercise.addExercise(exerciseName, staminaCost); //Adds exercise to general listz	
 			} else {
 				break;
 			}
