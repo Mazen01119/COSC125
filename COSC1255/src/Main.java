@@ -109,6 +109,7 @@ public class Main {
 			System.out.println(workout.toString());
 			System.out.println(Workouts.totalStamina);
 			*/
+		
 		Workouts workout1 = new Workouts(handstands, pushups, curls, null);
 		Workouts workout2 = new Workouts(benchpress, squats, curls, null);
 		Workouts workout3 = new Workouts(deadlift, dips, pullups, null);
