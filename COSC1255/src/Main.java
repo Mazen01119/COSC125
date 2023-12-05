@@ -199,9 +199,9 @@ public class Main {
             			break;
             		}
             	case 3:
-            		System.out.println("Your name is: ");
-            		System.out.println("Your weight is: ");
-            		System.out.println("Your height is: ");
+            		System.out.println("Your name is: " + person.getName());
+            		System.out.println("Your weight is: " + person.getWeight());
+            		System.out.println("Your height is: " + person.getHeight());
             		System.out.println("Your BMI Level is: ");
             		System.out.println("Your current Stamina level can be seen after you do the morning questionnaire and plan out your workout. ");
             		System.out.println("The system calculates your stamina level by adding your sleep Quality/ Duration, your planned meal count and your soreness Level to your inital Stamina Level.");
@@ -211,7 +211,7 @@ public class Main {
 		
 		
 		
-		//CREATING OBJECTS FOR EVERYTHING
+		
 	}
 }
 		
