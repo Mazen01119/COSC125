@@ -1,19 +1,22 @@
 import java.util.*;
 
 public class Workouts {
-	public static int totalStamina;
+	public static int totalStaminaLoss;
 	public static HashMap<Integer, Object> map = new HashMap<Integer, Object>();
 	
 	Queue workout = new LinkedList();
 	
 	public void addExercise(Exercise exercise) {
 		workout.add(exercise);
-		totalStamina += exercise.getStamina(); 
+		totalStaminaLoss += exercise.getStamina(); 
 		
 	}
 	
 	public Workouts() {}
 	
+	public static int getTotalStaminaLoss(){
+		return totalStaminaLoss;
+	}
 	
 	BodyWeighted pushups = new BodyWeighted("pushups", 20);
 	BodyWeighted pullups = new BodyWeighted("pullups", 30);
@@ -53,7 +56,7 @@ public class Workouts {
 	//Exercise exercise = workout.remove();
 	
 	public int staminaCost() {
-		return totalStamina;
+		return totalStaminaLoss;
 		}
 		
 	}

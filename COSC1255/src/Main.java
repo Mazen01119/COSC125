@@ -14,19 +14,26 @@ public class Main {
 		 * - these files regardless of the date should also be accessible from the menu 
 		 * when i say he i mean he/she, not to sound sexist 
 		 */
+		
+		// SCANNER DECLARATION
+		Scanner input = new Scanner(System.in);
+		
+		
+		
+		//OBJECT DECLARATION
 		//Making the objects for bodyweighted exercises.
-		BodyWeighted pushups = new BodyWeighted("pushups", 20);
-		BodyWeighted pullups = new BodyWeighted("pullups", 30);
-		BodyWeighted dips = new BodyWeighted("dips", 25);
-		BodyWeighted handstands = new BodyWeighted("handstands", 15);
+				BodyWeighted pushups = new BodyWeighted("pushups", 20);
+				BodyWeighted pullups = new BodyWeighted("pullups", 30);
+				BodyWeighted dips = new BodyWeighted("dips", 25);
+				BodyWeighted handstands = new BodyWeighted("handstands", 15);
+				
+				//Making the objects for weighted exercises
+				Weighted benchpress  = new Weighted("benchpress", 25);
+				Weighted deadlift  = new Weighted("deadlift", 30);
+				Weighted curls  = new Weighted("curls", 20);
+				Weighted squats  = new Weighted("squats", 30);
 		
-		//Making the objects for weighted exercises
-		Weighted benchpress  = new Weighted("benchpress", 25);
-		Weighted deadlift  = new Weighted("deadlift", 30);
-		Weighted curls  = new Weighted("curls", 20);
-		Weighted squats  = new Weighted("squats", 30);
-		
-		//Adding the bodyweight exercises to the list of exercises.
+				//Adding the bodyweight exercises to the list of exercises.
 				Exercise.exercises.add(pushups);
 				Exercise.exercises.add(pullups);
 				Exercise.exercises.add(dips);
@@ -38,91 +45,185 @@ public class Main {
 				Exercise.exercises.add(curls);
 				Exercise.exercises.add(squats);
 				
-		
-		Scanner input = new Scanner(System.in);
-		System.out.println(Exercise.exercises);
-		//Exercise.print();
-		//Workouts workout = new Workouts();
-		//String answer = "yes";
-		//String exercise;
-		/*do {
-			System.out.println("Do you want to add an exercise? ");
-		    answer = input.nextLine();	
-		    System.out.println("What exercise do you want to add? ");
-		    
-		}while(answer.equals("yes"));*/
-		
-		//String s = input.nextLine();
-		//workout.addExercise(curls);
-	//	workout.addExercise(pull up);
+				Workouts workout = new Workouts();
+				Workouts workout1 = new Workouts(handstands, pushups, curls, null);
+				Workouts workout2 = new Workouts(benchpress, squats, curls, null);
+				Workouts workout3 = new Workouts(deadlift, dips, pullups, null);
+				Workouts workout4 = new Workouts(deadlift, squats, pullups, benchpress);
 		
 		
-			
-	/*			
-			String answer = "yes";
-			
-			while(!answer.equals("no")) { 
-				
-			
-			
-				
-				
-				System.out.println("Please select the corrospinding number of the desired Exercise. ");
-				for(int i=0; i<Exercise.exercises.size(); i++) {
-					System.out.println(i+1);
-					System.out.println(Exercise.exercises.get(i));
-				}
-				int test = input.nextInt();
-				input.nextLine();
-				switch(test) {
-					case 1:
-						workout.addExercise(Exercise.exercises.get(0));
-						break;
-					case 2:
-						workout.addExercise(Exercise.exercises.get(1));
-						break;
-					case 3:
-						workout.addExercise(Exercise.exercises.get(2));
-						break;
-					case 4:
-						workout.addExercise(Exercise.exercises.get(3));
-						break;
-					case 5:
-						workout.addExercise(Exercise.exercises.get(4));
-						break;
-					case 6:
-						workout.addExercise(Exercise.exercises.get(5));
-						break;
-					case 7:
-						workout.addExercise(Exercise.exercises.get(6));
-						break;
-					case 8:
-						workout.addExercise(Exercise.exercises.get(7));
-						break;
-					
-				}
-				System.out.println("Would you like to add another exercise?");
-				answer = input.nextLine();
-				
-				
-			}
-			System.out.println(workout.toString());
-			System.out.println(Workouts.totalStamina);
-			*/
+		// MENU 
+		boolean exitMenu=false;
 		
-		Workouts workout1 = new Workouts(handstands, pushups, curls, null);
-		Workouts workout2 = new Workouts(benchpress, squats, curls, null);
-		Workouts workout3 = new Workouts(deadlift, dips, pullups, null);
-		Workouts workout4 = new Workouts(deadlift, squats, pullups, benchpress);
+		while(!exitMenu) {
+			System.out.println("=== MENU ===");
+            System.out.println("1. Brand new set up");
+            System.out.println("2. Today's workout");
+            System.out.println("3. General information");
+            System.out.println("4. Exit");
+            System.out.print("Enter your choice: ");
+            int choice = input.nextInt();
+            input.nextLine(); 
+            
+            switch(choice) {
+            	case 1: 
+            		// Brand new set up
+                    System.out.print("Enter your name: ");
+                    String name = input.nextLine();
+                    System.out.print("Enter your height (in meters): ");
+                    double height = input.nextDouble();
+                    System.out.print("Enter your weight (in kilograms): ");
+                    double weight = input.nextDouble();
+                    Person person = new Person(name, height, weight);
+                    break;
+            	case 2:
+            		System.out.println("First up on the schedule is the morning questionnaire.");
+            		System.out.println("How long did you sleep for? ");
+            		int sleepDuration = input.nextInt();
+            		if(sleepDuration >= 8) {
+            			sleepDuration = 40;
+            		}
+            		else if(sleepDuration <8 && sleepDuration>6) {
+            			sleepDuration = 30;
+            		}
+            		else {
+            			sleepDuration = 20;
+            		}
+            		System.out.println("What is your soreness level? (0-3 ");
+            		int sorenessLevel = input.nextInt();
+            		if (sorenessLevel == 1) {
+            			sorenessLevel = -10;
+            		}
+            		else if(sorenessLevel == 2) {
+            			sorenessLevel = -20;
+            		}
+            		else if(sorenessLevel == 3) {
+            			sorenessLevel = -30;
+            		}
+            		else {
+            			sorenessLevel=0;
+            		}
+            		System.out.println("What is your meal count? ");
+            		int mealCount = input.nextInt();
+            		if (mealCount == 1) {
+            			mealCount = 15;
+            		}
+            		else if(mealCount == 2) {
+            			mealCount = 25;
+            		}
+            		else if(mealCount == 3) {
+            			mealCount = 35;
+            		}
+            		else {
+            			mealCount=0;
+            		}
+            		input.nextLine();
+            		Statistics statistics = new Statistics(sleepDuration, sorenessLevel, mealCount);
+            		
+            		System.out.println("You have successfully completed the questionnaire. ");
+            		System.out.println("Would you like to workout today? ");
+            		String workoutChoice = input.nextLine();
+            		if(workoutChoice.equalsIgnoreCase("yes")) {
+            			if((statistics.calculateStaminaLevel()-95) <= 5) {
+            				System.out.println("You cannot workout today, your risk of injury is high!");
+            				System.out.println("Exiting the Program, goodbye!");
+            				exitMenu = true;
+            				break;
+            			}
+            			System.out.println("Would you like to set up your own Workout? ");
+            			String workoutChoiceTwo = input.nextLine();
+            			
+            			if(workoutChoiceTwo.equalsIgnoreCase("yes")) {
+            				String answer = "yes";
+            				int count = 0;
+            				while(!answer.equals("no")) { 
+            				System.out.println("Please select the corresponding number of the following Exercises. ");
+            				for(int i=0; i<Exercise.exercises.size(); i++) {
+            					System.out.print(i+1 + " ");
+            					System.out.println(Exercise.exercises.get(i));
+            				}	
+            					
+            					int exerciseChoice = input.nextInt();
+            					input.nextLine();
+            					switch(exerciseChoice) {
+            						case 1:
+            							workout.addExercise(Exercise.exercises.get(0));
+            							break;
+            						case 2:
+            							workout.addExercise(Exercise.exercises.get(1));
+            							break;
+            						case 3:
+            							workout.addExercise(Exercise.exercises.get(2));
+            							break;
+            						case 4:
+            							workout.addExercise(Exercise.exercises.get(3));
+            							break;
+            						case 5:
+            							workout.addExercise(Exercise.exercises.get(4));
+            							break;
+            						case 6:
+            							workout.addExercise(Exercise.exercises.get(5));
+            							break;
+            						case 7:
+            							workout.addExercise(Exercise.exercises.get(6));
+            							break;
+            						case 8:
+            							workout.addExercise(Exercise.exercises.get(7));
+            							break;
+            						
+            					}
+            					count++;
+            					if(count>3) {
+            						System.out.println("You have exceeded the amount of exercises you can add. ");
+            						break;
+            					}
+            					System.out.println("Would you like to add another exercise?");
+            					answer = input.nextLine();
+            			}
+            				System.out.println("This is your workout for today. ");
+            				System.out.println(workout.toString());
+            				System.out.println("This is your stamina Level after the workout: " + statistics.postCustomWorkout());
+            				// stamina level
+            				System.out.println("Exiting the program, have a nice day aand workout! ");
+            				exitMenu = true;
+            			}
+            			else {
+            				System.out.println("How much stamina are you looking to lose? ");
+            				int fatigue = input.nextInt();
+            				Workouts.setMap(Workouts.map, workout1, workout2, workout3, workout4);
+            				System.out.println("According to your stamina loss choice, this is your chosen workout: ");
+            				System.out.println(Workouts.map.get(fatigue));
+            				// stamina level
+            				System.out.println("Exiting the Program, have a nice day and workout! ");
+            				exitMenu = true;
+            			}
+            		}
+            		else {
+            			System.out.println("Exiting the program. Have a great rest day, see you tomorrow! ");
+            			exitMenu = true;
+            			break;
+            		}
+            	case 3:
+            		System.out.println("Your name is: ");
+            		System.out.println("Your weight is: ");
+            		System.out.println("Your height is: ");
+            		System.out.println("Your BMI Level is: ");
+            		System.out.println("Your current Stamina level can be seen after you do the morning questionnaire and plan out your workout. ");
+            		System.out.println("The system calculates your stamina level by adding your sleep Quality/ Duration, your planned meal count and your soreness Level to your inital Stamina Level.");
+            }
+		}
 		
-		System.out.println("What fatigue level would you like to use?");
-		int fatigue = input.nextInt();
-		Workouts.setMap(Workouts.map, workout1, workout2, workout3, workout4);
-		System.out.println(Workouts.map.get(fatigue));
 		
 		
-		
-		
+		//CREATING OBJECTS FOR EVERYTHING
 	}
-
 }
+		
+		
+		
+		
+		
+				
+		
+		
+		

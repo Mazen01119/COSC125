@@ -18,115 +18,64 @@ public class Statistics {
 	 * you have full freedom in how the values and the calculation end up looking like, they just have to make sense 
 	 *
 	 */
+	    private int sleepDuration;
+	    private int sorenessLevel;
+	    private int mealCount;
+	    private int currentStamina;
+	    private int stamina = 100;
+
+	    public Statistics(int sleepDuration, int sorenessLevel, int mealCount) {
+	        this.sleepDuration = sleepDuration;
+	        this.sorenessLevel = sorenessLevel;
+	        this.mealCount = mealCount;
+	    }
+
+	    public int getSleepDuration() {
+	        return sleepDuration;
+	    }
+
+	    public void setSleepDuration(int sleepDuration) {
+	        this.sleepDuration = sleepDuration;
+	    }
+
+	    public int getSorenessLevel() {
+	        return sorenessLevel;
+	    }
+
+	    public void setSorenessLevel(int sorenessLevel) {
+	        this.sorenessLevel = sorenessLevel;
+	    }
+
+	    public int getMealCount() {
+	        return mealCount;
+	    }
+
+	    public void setMealCount(int mealCount) {
+	        this.mealCount = mealCount;
+	    }
+
+	    public int calculateStaminaLevel() {
+	        int currentStamina = stamina + getSorenessLevel() + getSleepDuration() + getMealCount();
+	        return currentStamina;
+	    }
+	    
+	    public int postCustomWorkout() {
+	    	int postWorkout = currentStamina - Workouts.getTotalStaminaLoss();
+	    	return postWorkout;
+	    }
+	    
+	    
+	    
+	    public int getCurrentStamina() {
+	    	return currentStamina;
+	    }
+	    
+	    public void setInitialStamina(int stamina) {
+	    	this.stamina = stamina;
+	    }
+	    
+	// >8 hours of sleep + 40, <8 hours of sleep + 30, <6hours of sleep + 20, 1 meal 15, 2 meals 25, 3 meals 35, 1 soreness -10, 2 soreness -20, 3 soreness -30 
 	
 	
-	
-    private ArrayList<Integer> workoutTimes;
-    private ArrayList<Person> persons;
-
-    public Statistics() {
-        workoutTimes = new ArrayList<>();
-        persons = new ArrayList<>();
-    }
-
-    public void addWorkoutTime(int time) {
-        workoutTimes.add(time);
-    }
-
-    public int getMinimumWorkoutTime() {
-        if (workoutTimes.isEmpty()) {
-            return 0; // Return 0 if there are no workout times recorded
-        }
-
-        int minTime = workoutTimes.get(0);
-        for (int time : workoutTimes) {
-            if (time < minTime) {
-                minTime = time;
-            }
-        }
-
-        return minTime;
-    }
-
-    public int getMaximumWorkoutTime() {
-        if (workoutTimes.isEmpty()) {
-            return 0; // Return 0 if there are no workout times recorded
-        }
-
-        int maxTime = workoutTimes.get(0);
-        for (int time : workoutTimes) {
-            if (time > maxTime) {
-                maxTime = time;
-            }
-        }
-
-        return maxTime;
-    }
-
-    public double getAverageWorkoutTime() {
-        if (workoutTimes.isEmpty()) {
-            return 0; // Return 0 if there are no workout times recorded
-        }
-
-        int sumTime = 0;
-        for (int time : workoutTimes) {
-            sumTime += time;
-        }
-
-        return (double) sumTime / workoutTimes.size();
-    }
-
-    public double getBMIDifference() {
-        if (persons.isEmpty()) {
-            return 0; // Return 0 if there are no person data available
-        }
-
-        Person initialPerson = persons.get(0);
-        double initialBMI = initialPerson.calculateBMI();
-
-        Person latestPerson = persons.get(persons.size() - 1);
-        double latestBMI = latestPerson.calculateBMI();
-
-        return latestBMI - initialBMI;
-    }
-
-    public int getTotalWorkoutTime() {
-        if (workoutTimes.isEmpty()) {
-            return 0; // Return 0 if there are no workout times recorded
-        }
-
-        int totalWorkoutTime = 0;
-        for (int time : workoutTimes) {
-            totalWorkoutTime += time;
-        }
-
-        return totalWorkoutTime;
-    }
-
-    public double getAverageWorkoutIntensity() {
-        if (persons.isEmpty()) {
-            return 0; // Return 0 if there are no person data available
-        }
-
-        double totalIntensity = 0;
-       /* for (Person person : persons) {
-            totalIntensity += person.getWorkoutIntensity();
-        }*/
-
-        return totalIntensity / persons.size();
-    }
-
-   /* public double getCalorieBurnRate() {
-        if (workoutTimes.isEmpty() || persons.isEmpty()) {
-            return 0; // Return 0 if there are no workout times recorded or person data available
-        }
-
-        int totalWorkoutTime = getTotalWorkoutTime();
-        double totalCaloriesBurned = 0;
-        for (Person person : persons) {
-            totalCaloriesBurned += person.calculateCaloriesBurned(totalWorkoutTime);
-        }
-
-        return totalCaloriesBurned / totalWorkoutTime;
-    }*/
-}
+}	
+   
