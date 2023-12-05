@@ -43,6 +43,16 @@ public class Main {
 		
 		
 		// MENU 
+				
+				// Brand new set up
+        System.out.print("Enter your name: ");
+        String name = input.nextLine();
+        System.out.print("Enter your height (in meters): ");
+        double height = input.nextDouble();
+        System.out.print("Enter your weight (in kilograms): ");
+        double weight = input.nextDouble();
+        Person person = new Person(name, height, weight);
+        
 		boolean exitMenu=false;
 		
 		while(!exitMenu) {
@@ -58,13 +68,13 @@ public class Main {
             switch(choice) {
             	case 1: 
             		// Brand new set up
+            		System.out.println("Change your information. ");
                     System.out.print("Enter your name: ");
-                    String name = input.nextLine();
+                    person.setName(input.nextLine());
                     System.out.print("Enter your height (in meters): ");
-                    double height = input.nextDouble();
+                    person.setHeight(input.nextDouble());
                     System.out.print("Enter your weight (in kilograms): ");
-                    double weight = input.nextDouble();
-                    Person person = new Person(name, height, weight);
+                    person.setWeight(input.nextDouble());
                     break;
             	case 2:
             		System.out.println("First up on the schedule is the morning questionnaire.");
@@ -176,7 +186,7 @@ public class Main {
             				System.out.println("This is what the workout is gonna cost you: " + Workouts.totalStaminaLoss);
             				System.out.println("This is your stamina Level after the workout: " + statistics.postCustomWorkout());
             				// stamina level
-            				System.out.println("Exiting the program, have a nice day aand workout! ");
+            				System.out.println("Exiting the program, have a nice Workout and Day! See you tomorrow. ");
             				exitMenu = true;
             				break;
             			}
@@ -188,7 +198,7 @@ public class Main {
             				System.out.println(Workouts.map.get(fatigue));
             				System.out.println("This is your stamina Level after the workout: " + statistics.postSetWorkout(fatigue));
             				// stamina level
-            				System.out.println("Exiting the Program, have a nice day and workout! ");
+            				System.out.println("Exiting the Program, have a nice Workout and Day! See you tomorrow. ");
             				exitMenu = true;
             				break;
             			}
@@ -202,9 +212,14 @@ public class Main {
             		System.out.println("Your name is: " + person.getName());
             		System.out.println("Your weight is: " + person.getWeight());
             		System.out.println("Your height is: " + person.getHeight());
-            		System.out.println("Your BMI Level is: ");
+            		System.out.println("Your BMI Level is: " + person.calculateBMI());
             		System.out.println("Your current Stamina level can be seen after you do the morning questionnaire and plan out your workout. ");
             		System.out.println("The system calculates your stamina level by adding your sleep Quality/ Duration, your planned meal count and your soreness Level to your inital Stamina Level.");
+            		System.out.println("Would you like to return to the original Menu? ");
+            		if(input.nextLine().equalsIgnoreCase("yes")) {
+            			break;
+            		}
+            		exitMenu=true;
             		break;
             }
 		}
