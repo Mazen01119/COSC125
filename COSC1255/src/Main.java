@@ -57,9 +57,9 @@ public class Main {
 		
 		while(!exitMenu) {
 			System.out.println("=== MENU ===");
-            System.out.println("1. Brand new set up");
-            System.out.println("2. Today's workout");
-            System.out.println("3. General information");
+            System.out.println("1. Change your information");
+            System.out.println("2. Today's agenda");
+            System.out.println("3. User information");
             System.out.println("4. Exit");
             System.out.print("Enter your choice: ");
             int choice = input.nextInt();
@@ -89,7 +89,7 @@ public class Main {
             		else {
             			sleepDuration = 20;
             		}
-            		System.out.println("What is your soreness level? (0-3 ");
+            		System.out.println("What is your soreness level? (0-3) ");
             		int sorenessLevel = input.nextInt();
             		if (sorenessLevel == 1) {
             			sorenessLevel = -10;
@@ -103,7 +103,7 @@ public class Main {
             		else {
             			sorenessLevel=0;
             		}
-            		System.out.println("What is your meal count? ");
+            		System.out.println("What is your meal count? (0-3) ");
             		int mealCount = input.nextInt();
             		if (mealCount == 1) {
             			mealCount = 15;
@@ -121,7 +121,7 @@ public class Main {
             		Statistics statistics = new Statistics(sleepDuration, sorenessLevel, mealCount);
             		
             		System.out.println("You have successfully completed the questionnaire. ");
-            		System.out.println("Would you like to workout today? ");
+            		System.out.println("Would you like to workout today? (yes/no) ");
             		String workoutChoice = input.nextLine();
             		if(workoutChoice.equalsIgnoreCase("yes")) {
             			if((statistics.calculateStaminaLevel()-95) <= 5) {
@@ -130,7 +130,7 @@ public class Main {
             				exitMenu = true;
             				break;
             			}
-            			System.out.println("Would you like to set up your own Workout? ");
+            			System.out.println("Would you like to set up your own Workout? (yes/no) ");
             			String workoutChoiceTwo = input.nextLine();
             			
             			if(workoutChoiceTwo.equalsIgnoreCase("yes")) {
@@ -177,27 +177,25 @@ public class Main {
             						System.out.println("You have exceeded the amount of exercises you can add. ");
             						break;
             					}
-            					System.out.println("Would you like to add another exercise?");
+            					System.out.println("Would you like to add another exercise? (yes/no)");
             					answer = input.nextLine();
             			}
             				System.out.println("This is your workout for today. ");
             				System.out.println(workout.toString());
-            				System.out.println("This is your stamine level before the workout: " + statistics.calculateStaminaLevel());
-            				System.out.println("This is what the workout is gonna cost you: " + Workouts.totalStaminaLoss);
+            				System.out.println("This is your stamina level before the workout: " + statistics.calculateStaminaLevel());
+            				System.out.println("This is what the workout is going to cost you: " + Workouts.totalStaminaLoss);
             				System.out.println("This is your stamina Level after the workout: " + statistics.postCustomWorkout());
-            				// stamina level
             				System.out.println("Exiting the program, have a nice Workout and Day! See you tomorrow. ");
             				exitMenu = true;
             				break;
             			}
             			else {
-            				System.out.println("How much stamina are you looking to lose? ");
+            				System.out.println("How much stamina are you looking to lose? (40/60/80/95) ");
             				int fatigue = input.nextInt();
             				Workouts.setMap(Workouts.map, workout1, workout2, workout3, workout4);
             				System.out.println("According to your stamina loss choice, this is your chosen workout: ");
             				System.out.println(Workouts.map.get(fatigue));
             				System.out.println("This is your stamina Level after the workout: " + statistics.postSetWorkout(fatigue));
-            				// stamina level
             				System.out.println("Exiting the Program, have a nice Workout and Day! See you tomorrow. ");
             				exitMenu = true;
             				break;
@@ -215,17 +213,19 @@ public class Main {
             		System.out.println("Your BMI Level is: " + person.calculateBMI());
             		System.out.println("Your current Stamina level can be seen after you do the morning questionnaire and plan out your workout. ");
             		System.out.println("The system calculates your stamina level by adding your sleep Quality/ Duration, your planned meal count and your soreness Level to your inital Stamina Level.");
-            		System.out.println("Would you like to return to the original Menu? ");
+            		System.out.println("Would you like to return to the original Menu? (yes/no) ");
             		if(input.nextLine().equalsIgnoreCase("yes")) {
             			break;
             		}
             		exitMenu=true;
             		break;
+            	case 4:
+            		exitMenu=true;
             }
 		}
 		
 		
-		
+		input.close();
 		
 	}
 }
