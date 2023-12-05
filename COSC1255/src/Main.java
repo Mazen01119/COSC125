@@ -3,17 +3,7 @@ import java.util.*;
 public class Main {
 
 	public static void main(String[] args) {
-		/* There has to be a menu the user is first presented with the following items
-		 * - brand new set up (this is if the user is using our program for the first time, this is where we ask him about name height and weight and whatever else u think fits the criteria
-		 * 
-		 * - todays date, this just means we have the users information and he wants to start the questionnaire then figure out his workout 
-		 * 
-		 * - general information, this is where the user can access all sorts of info like current stamina level for example, u can be creative with this as well
-		 * 
-		 * - now everytime a user finishes doing the questionnaire and picking his workout a new text file should be created that acts a diary of ssorts, this file shows the date, the answers to his questionnaire and the workout he did
-		 * - these files regardless of the date should also be accessible from the menu 
-		 * when i say he i mean he/she, not to sound sexist 
-		 */
+		
 		
 		// SCANNER DECLARATION
 		Scanner input = new Scanner(System.in);
@@ -22,16 +12,16 @@ public class Main {
 		
 		//OBJECT DECLARATION
 		//Making the objects for bodyweighted exercises.
-				BodyWeighted pushups = new BodyWeighted("pushups", 20);
-				BodyWeighted pullups = new BodyWeighted("pullups", 30);
-				BodyWeighted dips = new BodyWeighted("dips", 25);
-				BodyWeighted handstands = new BodyWeighted("handstands", 15);
+				BodyWeighted pushups = new BodyWeighted("pushups", 15);
+				BodyWeighted pullups = new BodyWeighted("pullups", 25);
+				BodyWeighted dips = new BodyWeighted("dips", 20);
+				BodyWeighted handstands = new BodyWeighted("handstands", 10);
 				
 				//Making the objects for weighted exercises
-				Weighted benchpress  = new Weighted("benchpress", 25);
-				Weighted deadlift  = new Weighted("deadlift", 30);
-				Weighted curls  = new Weighted("curls", 20);
-				Weighted squats  = new Weighted("squats", 30);
+				Weighted benchpress  = new Weighted("benchpress", 20);
+				Weighted deadlift  = new Weighted("deadlift", 25);
+				Weighted curls  = new Weighted("curls", 15);
+				Weighted squats  = new Weighted("squats", 25);
 		
 				//Adding the bodyweight exercises to the list of exercises.
 				Exercise.exercises.add(pushups);
@@ -137,6 +127,7 @@ public class Main {
             				String answer = "yes";
             				int count = 0;
             				while(!answer.equals("no")) { 
+            					count++;
             				System.out.println("Please select the corresponding number of the following Exercises. ");
             				for(int i=0; i<Exercise.exercises.size(); i++) {
             					System.out.print(i+1 + " ");
@@ -172,7 +163,6 @@ public class Main {
             							break;
             						
             					}
-            					count++;
             					if(count>3) {
             						System.out.println("You have exceeded the amount of exercises you can add. ");
             						break;
@@ -182,10 +172,13 @@ public class Main {
             			}
             				System.out.println("This is your workout for today. ");
             				System.out.println(workout.toString());
+            				System.out.println("This is your stamine level before the workout: " + statistics.calculateStaminaLevel());
+            				System.out.println("This is what the workout is gonna cost you: " + Workouts.totalStaminaLoss);
             				System.out.println("This is your stamina Level after the workout: " + statistics.postCustomWorkout());
             				// stamina level
             				System.out.println("Exiting the program, have a nice day aand workout! ");
             				exitMenu = true;
+            				break;
             			}
             			else {
             				System.out.println("How much stamina are you looking to lose? ");
@@ -193,9 +186,11 @@ public class Main {
             				Workouts.setMap(Workouts.map, workout1, workout2, workout3, workout4);
             				System.out.println("According to your stamina loss choice, this is your chosen workout: ");
             				System.out.println(Workouts.map.get(fatigue));
+            				System.out.println("This is your stamina Level after the workout: " + statistics.postSetWorkout(fatigue));
             				// stamina level
             				System.out.println("Exiting the Program, have a nice day and workout! ");
             				exitMenu = true;
+            				break;
             			}
             		}
             		else {
@@ -210,6 +205,7 @@ public class Main {
             		System.out.println("Your BMI Level is: ");
             		System.out.println("Your current Stamina level can be seen after you do the morning questionnaire and plan out your workout. ");
             		System.out.println("The system calculates your stamina level by adding your sleep Quality/ Duration, your planned meal count and your soreness Level to your inital Stamina Level.");
+            		break;
             }
 		}
 		

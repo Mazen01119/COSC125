@@ -60,7 +60,12 @@ public class Statistics {
 	    }
 	    
 	    public int postCustomWorkout() {
-	    	int postWorkout = currentStamina - Workouts.getTotalStaminaLoss();
+	    	int postWorkout = calculateStaminaLevel() - Workouts.getTotalStaminaLoss();
+	    	return postWorkout;
+	    }
+	    
+	    public int postSetWorkout(int fatigue) {
+	    	int postWorkout = calculateStaminaLevel() - fatigue;
 	    	return postWorkout;
 	    }
 	    
