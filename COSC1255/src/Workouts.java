@@ -3,7 +3,6 @@ import java.util.*;
 public class Workouts {
 	public static int totalStaminaLoss;
 	public static HashMap<Integer, Object> map = new HashMap<Integer, Object>();
-	
 	Queue workout = new LinkedList();
 	
 	public void addExercise(Exercise exercise) {
@@ -18,16 +17,6 @@ public class Workouts {
 		return totalStaminaLoss;
 	}
 	
-	BodyWeighted pushups = new BodyWeighted("pushups", 20);
-	BodyWeighted pullups = new BodyWeighted("pullups", 30);
-	BodyWeighted dips = new BodyWeighted("dips", 25);
-	BodyWeighted handstands = new BodyWeighted("handstands", 15);
-	
-	//Making the objects for weighted exercises
-	Weighted benchpress  = new Weighted("benchpress", 25);
-	Weighted deadlift  = new Weighted("deadlift", 30);
-	Weighted curls  = new Weighted("curls", 20);
-	Weighted squats  = new Weighted("squats", 30);
 	
 	
 	
@@ -53,7 +42,7 @@ public class Workouts {
 		return workout.toString();
 	}
 	
-	//Exercise exercise = workout.remove();
+	
 	
 	public int staminaCost() {
 		return totalStaminaLoss;
@@ -61,3 +50,9 @@ public class Workouts {
 		
 	}
 
+//40, 60, 80, 95
+
+	// 40 = handstands 10 + pushups 15 + curls 15
+	// 60 = benchpress 20 + squats 25 + curls 15
+	// 80 = deadlift 25 + dips 20 + pull ups 25 + handstands 10 
+	// 95 = deadlift 25 + squats 25 + pull ups 25 + bench press 20

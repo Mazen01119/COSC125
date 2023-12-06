@@ -42,7 +42,7 @@ public class Person {
 	        this.weight = weight;
 	    }
 
-	    // Extra
+	    
 
 	   // Example: Method to calculate BMI (Body Mass Index)
 	    public double calculateBMI() {

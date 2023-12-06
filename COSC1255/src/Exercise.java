@@ -95,11 +95,7 @@ public class Exercise {
 		
 		
 	}
-	// 40, 60, 80, 95
 	
-	// 40 = handstands 10 + pushups 15 + curls 15
-	// 60 = benchpress 20 + squats 25 + curls 15
-	// 80 = deadlift 25 + dips 20 + pull ups 25 + handstands 10 
-	// 95 = deadlift 25 + squats 25 + pull ups 25 + bench press 20
+	
 	
 }
